@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL Lyrics: Cosmic Echoes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar for a sleek, dark aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.secondary-dark');
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.primary-light');
+            border-radius: 10px;
+            border: 2px solid theme('colors.secondary-dark');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.accent');
+        }
+
+        /* Subtle, dynamic background gradient animation for a "cosmic tech" vibe */
+        body {
+            background: radial-gradient(circle at top left, theme('colors.primary-dark') 0%, transparent 40%),
+                        radial-gradient(circle at bottom right, theme('colors.secondary-dark') 0%, transparent 40%),
+                        theme('colors.bg');
+            background-attachment: fixed;
+            background-size: 150% 150%;
+            animation: moveGradient 15s ease infinite alternate;
+        }
+
+        @keyframes moveGradient {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        /* Glassmorphism effect for content cards */
+        .glass-card {
+            background-color: rgba(theme('colors.secondary-dark'), 0.4); /* Darker, semi-transparent */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(theme('colors.neutral-dark'), 0.3);
+            border-radius: 1.5rem; /* More rounded corners for modern feel */
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+            position: relative; /* Needed for absolute positioned glow */
+            overflow: hidden; /* Ensures glow doesn't spill out */
+        }
+        .glass-card:hover {
+            background-color: rgba(theme('colors.secondary-dark'), 0.6);
+            border-color: rgba(theme('colors.accent'), 0.5);
+            transform: translateY(-5px) scale(1.01); /* Lift and slightly enlarge on hover */
+            box-shadow: 0 12px 48px 0 rgba(theme('colors.accent'), 0.4);
+        }
+
+        /* Gradient separator line for visual hierarchy */
+        .gradient-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, theme('colors.neutral-dark'), transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Animated border glow for cards */
+        .border-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 1.5rem;
+            padding: 2px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            pointer-events: none;
+            background: linear-gradient(45deg, var(--tw-colors-primary-light), var(--tw-colors-accent));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude; /* For Safari */
+            mask-composite: exclude;
+        }
+        .glass-card:hover .border-glow {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': 'hsl(250, 60%, 15%)', // Deep violet for background accents
+                        'primary-light': 'hsl(270, 90%, 80%)', // Lavender glow for highlights/text
+                        'secondary-dark': 'hsl(240, 15%, 20%)', // Dark slate, almost black for card backgrounds
+                        'secondary-light': 'hsl(260, 50%, 75%)', // Lighter violet for secondary text
+                        'bg': 'hsl(240, 10%, 8%)', // Very dark blue-grey for main background
+                        'error': 'hsl(0, 70%, 50%)', // Standard error red
+                        'neutral-dark': 'hsl(240, 5%, 30%)', // For subtle borders, dividers
+                        'neutral-light': 'hsl(240, 10%, 60%)', // For subtle body text/labels
+                        'accent': 'hsl(280, 80%, 65%)', // Vibrant magenta for strong accents
+                        'text-header': 'hsl(270, 90%, 90%)', // Lighter, almost white for main headers
+                        'text-body': 'hsl(260, 30%, 80%)', // Main body text color
+                        'text-subtle': 'hsl(240, 15%, 50%)', // Muted text for descriptions
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'sans-serif'], // For impactful headers
+                        body: ['Inter', 'sans-serif'],     // For highly readable body text
+                    },
+                    boxShadow: {
+                        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)', // Custom large shadow
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-body text-text-body antialiased selection:bg-accent selection:text-white min-h-screen">
+
+    <div class="container mx-auto px-4 py-8 md:py-16 max-w-6xl relative z-10">
+        <!-- Hero Section: Captivating Title and Introduction -->
+        <header class="text-center mb-16">
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-header mb-4 leading-tight">
+                <span class="bg-gradient-to-r from-primary-light to-accent text-transparent bg-clip-text">ASL</span>
+                Lyrics Interpretation
+            </h1>
+            <p class="text-lg md:text-xl text-neutral-light max-w-2xl mx-auto mb-8">
+                Dive into the intricate world of American Sign Language,
+                where every lyric comes alive with expressive glosses, non-manual signals, and precise tempo.
+            </p>
+            <a href="#lyrics-section" class="relative inline-block px-8 py-3 bg-gradient-to-r from-primary-light to-accent rounded-full text-bg font-display font-bold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out group">
+                Explore the Depths
+                <!-- Subtle glow effect on hover for the button -->
+                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
+            </a>
+        </header>
+
+        <!-- Lyrics Section: Grid of ASL Lyric Cards -->
+        <main id="lyrics-section" class="grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+            <!-- Lyric cards will be dynamically inserted here by JavaScript -->
+        </main>
+
+        <!-- Footer: Simple Copyright Notice -->
+        <footer class="text-center mt-20 text-neutral-light text-sm">
+            <p>&copy; 2023 ASL Lyric Project. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Provided JSON data embedded directly into JavaScript
+        const lyricsData = [
+            {
+                "english_lyric": "In the tower of glass, where the ledgers lie,",
+                "asl_gloss": "GLASS TOWER, LEDGER BOOK LIE-DECEIVE.",
+                "nms_tempo_instructions": "Sign \"GLASS TOWER\" with an upright posture and slightly widened eyes to convey height and transparency. For \"LEDGER BOOK,\" use a neutral expression. Transition to \"LIE-DECEIVE\" with a slightly furrowed brow and a subtle head shake to express skepticism or a critical tone about the ledgers' truthfulness. Tempo is measured and descriptive."
+            },
+            {
+                "english_lyric": "They trade in time like wings that’ll never fly.",
+                "asl_gloss": "THEY TRADE TIME, LIKE WINGS NEVER FLY.",
+                "nms_tempo_instructions": "For \"THEY TRADE TIME,\" use a quick, almost dismissive sign for \"TRADE,\" with a neutral but slightly intense expression. Transition to \"LIKE WINGS,\" with hands forming wings, then abruptly stop the flying motion for \"NEVER FLY,\" accompanied by a slight downturn of the mouth and a slow head shake indicating futility and resignation. Tempo starts brisk, then slows dramatically."
+            },
+            {
+                "english_lyric": "Marked-to-market, soul on lease,",
+                "asl_gloss": "MARKET-VALUE ADJUST, SOUL LEASED.",
+                "nms_tempo_instructions": "Sign \"MARKET-VALUE ADJUST\" with a precise, almost clinical facial expression, perhaps a slight nod for \"ADJUST.\" For \"SOUL LEASED,\" use a slightly solemn or critical expression, conveying the idea of something precious being rented, with a slight head shake for the \"leased\" aspect, emphasizing temporary, not owned. Tempo is deliberate and impactful."
+            },
+            {
+                "english_lyric": "Beta breath, sold for a sliver of peace.",
+                "asl_gloss": "BETA (fs) UNSTABLE BREATH, SELL FOR SMALL PEACE.",
+                "nms_tempo_instructions": "For \"BETA UNSTABLE BREATH,\" use a slightly constricted chest and rapid, shallow breathing facial expression, conveying anxiety. For \"SELL FOR SMALL PEACE,\" the expression should shift to a resigned or weary look, with the \"small\" emphasized by pursed lips or a squint. Tempo is moderate, with a slight pause for emphasis on \"SMALL PEACE.\""
+            },
+            {
+                "english_lyric": "Flash crash prophets in temple suits,",
+                "asl_gloss": "QUICK COLLAPSE PREDICT FUTURE (PROPHET), SUIT TEMPLE (BUILDING).",
+                "nms_tempo_instructions": "Sign \"QUICK COLLAPSE\" with sharp, sudden movements, eyebrows raised in alarm for \"PREDICT FUTURE.\" For \"SUIT TEMPLE (BUILDING),\" maintain a serious, almost stiff posture, conveying formality and a false sense of authority. The rhythm is quick, then controlled."
+            },
+            {
+                "english_lyric": "Whispers of gold in algorithmic flutes.",
+                "asl_gloss": "GOLD RUMOR, ALGORITHM FLUTE-SOUND (WAVING HANDS).",
+                "nms_tempo_instructions": "For \"GOLD RUMOR,\" use a furtive expression, leaning slightly forward as if sharing a secret, with a quick, shifty eye gaze. For \"ALGORITHM FLUTE-SOUND,\" sign \"ALGORITHM\" precisely, then \"FLUTE-SOUND\" with a smooth, almost hypnotic waving motion of the dominant hand, eyes narrowed, conveying a subtle, manipulative allure. Tempo is fluid and somewhat deceptive."
+            },
+            {
+                "english_lyric": "But the margin calls echo through tombs of shame,",
+                "asl_gloss": "BUT DEBT DEMAND ECHO, SHAME TOMB THROUGH.",
+                "nms_tempo_instructions": "Sign \"BUT DEBT DEMAND\" with a sudden, sharp, almost aggressive motion, accompanied by a quick, sharp head nod. For \"ECHO,\" use a lingering, expansive motion, letting the sound visually spread. Transition to \"SHAME TOMB THROUGH\" with a somber, heavy expression, eyes cast down, conveying the weight of shame and finality. Tempo starts sharp, then slows and deepens."
+            },
+            {
+                "english_lyric": "Options expiring in Jehovah’s name.",
+                "asl_gloss": "OPTIONS EXPIRE, JEHOVAH NAME INVOLVE-SACRED.",
+                "nms_tempo_instructions": "Sign \"OPTIONS EXPIRE\" with a sense of finality and loss, perhaps a slight exhalation. For \"JEHOVAH NAME INVOLVE-SACRED,\" use a reverent but conflicted expression, eyes slightly widened, with a slow, deliberate movement for \"SACRED,\" contrasting the earlier financial terms with a spiritual, almost blasphemous context. Tempo is deliberate and impactful."
+            },
+            {
+                "english_lyric": "You price my silence,",
+                "asl_gloss": "YOU PRICE MY SILENCE.",
+                "nms_tempo_instructions": "Sign \"YOU PRICE MY SILENCE\" with a direct, accusatory gaze. The sign for \"PRICE\" should be firm, and \"SILENCE\" should be held with a tight-lipped, defiant expression. Tempo is slow, deliberate, and intense."
+            },
+            {
+                "english_lyric": "But my soul’s unowned.",
+                "asl_gloss": "BUT MY SOUL NOT OWN.",
+                "nms_tempo_instructions": "For \"BUT MY SOUL NOT OWN,\" use a strong, assertive head shake for \"NOT OWN,\" with a defiant and empowered facial expression. The hand for \"SOUL\" should be placed firmly. Tempo is slow and powerful."
+            },
+            {
+                "english_lyric": "You lease the shadow,",
+                "asl_gloss": "YOU LEASE SHADOW.",
+                "nms_tempo_instructions": "Sign \"YOU LEASE SHADOW\" with a dismissive gesture for \"SHADOW,\" implying it's insubstantial. Maintain an unwavering, challenging gaze. Tempo is steady and firm."
+            },
+            {
+                "english_lyric": "But not the throne.",
+                "asl_gloss": "BUT NOT THRONE.",
+                "nms_tempo_instructions": "For \"BUT NOT THRONE,\" use a powerful, sweeping motion for \"THRONE,\" accompanied by a strong, definitive head shake for \"NOT,\" conveying absolute refusal and sovereignty. The expression should be fierce and triumphant. Tempo is impactful and resolute."
+            },
+            {
+                "english_lyric": "“I am Alpha, I am Flame,",
+                "asl_gloss": "I ALPHA, I FLAME.",
+                "nms_tempo_instructions": "Sign \"I ALPHA\" with a strong, self-assured posture, chest out, chin slightly raised, eyes direct. For \"I FLAME,\" use an upward, expressive motion with hands flickering, accompanied by an intense, burning gaze. Tempo is powerful and declarative, rising."
+            },
+            {
+                "english_lyric": "Omega’s breath, unboxed by name.",
+                "asl_gloss": "OMEGA BREATH, NAME UNBOXED (REVEAL).",
+                "nms_tempo_instructions": "For \"OMEGA BREATH,\" use a deep, controlled breath, exhaling slowly, conveying vastness. For \"NAME UNBOXED (REVEAL),\" use an expansive, opening gesture, eyes wide with revelation, indicating something profound being brought forth. Tempo is grand and significant."
+            },
+            {
+                "english_lyric": "From Sole to Soul, I walked through fire,",
+                "asl_gloss": "FROM FEET TO SOUL, I WALK THROUGH FIRE.",
+                "nms_tempo_instructions": "Sign \"FROM FEET TO SOUL\" with a grounding, deliberate motion from the ground up to the chest, showing a journey of embodiment. For \"I WALK THROUGH FIRE,\" depict walking with effort, facial expression showing determination and resilience, with a slight grimace as if enduring heat. Tempo is steady, resolute, and enduring."
+            },
+            {
+                "english_lyric": "Earth to Sol — my birthright choir.”",
+                "asl_gloss": "EARTH TO SUN – MY BIRTH-RIGHT CHORUS.",
+                "nms_tempo_instructions": "For \"EARTH TO SUN,\" use a broad, sweeping motion, looking upwards, conveying cosmic scale. For \"MY BIRTH-RIGHT CHORUS,\" place hand firmly on chest for \"MY,\" then sign \"BIRTH-RIGHT\" with conviction. \"CHORUS\" should be signed with an expansive, harmonious gesture, eyes shining with triumph and destiny. Tempo is majestic and soaring."
+            },
+            {
+                "english_lyric": "Candace in cipher, veiled and armed,",
+                "asl_gloss": "CANDACE (fs) CODE-HIDDEN, VEIL (COVER FACE) AND ARM-WEAPON.",
+                "nms_tempo_instructions": "For \"CANDACE CODE-HIDDEN,\" fingerspell \"CANDACE\" then sign \"CODE-HIDDEN\" with a mysterious, enigmatic expression, perhaps a slight smirk. For \"VEIL (COVER FACE) AND ARM-WEAPON,\" physically indicate drawing a veil, then firmly position hands as if holding a weapon, conveying a protective, prepared stance. Tempo is intriguing and cautious."
+            },
+            {
+                "english_lyric": "In glyph-lit temples, never charmed.",
+                "asl_gloss": "PICTURE-WRITING LIGHT TEMPLE INSIDE, NEVER CHARMED.",
+                "nms_tempo_instructions": "Sign \"PICTURE-WRITING LIGHT TEMPLE INSIDE\" with an air of reverence and ancient wisdom, eyes scanning as if reading. For \"NEVER CHARMED,\" shake head definitively with a dismissive expression, indicating resistance to manipulation or superficial allure. Tempo is deliberate and firm."
+            },
+            {
+                "english_lyric": "She reads the scrolls beneath the vault,",
+                "asl_gloss": "SHE READ SCROLLS, VAULT BENEATH.",
+                "nms_tempo_instructions": "For \"SHE READ SCROLLS,\" mime unrolling and reading a scroll with focused, intense eyes. For \"VAULT BENEATH,\" indicate a heavy, secure vault above, then point downwards, conveying deep, hidden knowledge. Tempo is contemplative and investigative."
+            },
+            {
+                "english_lyric": "Chez d’Frankin, house of occult.",
+                "asl_gloss": "CHEZ (fs) FRANKIN (fs), HOUSE SECRET/MYSTERY.",
+                "nms_tempo_instructions": "Fingerspell \"CHEZ\" then \"FRANKIN\" with a slight pause, then sign \"HOUSE SECRET/MYSTERY\" with a knowing, slightly eerie expression, indicating a place of hidden, profound knowledge. Tempo is steady and revealing."
+            },
+            {
+                "english_lyric": "She asked the Geneoracle, “Tell me true—\"",
+                "asl_gloss": "SHE ASK GENE-ORACLE (fs), 'TRUTH TELL ME—'",
+                "nms_tempo_instructions": "For \"SHE ASK GENE-ORACLE,\" use an earnest, inquiring expression, leaning forward slightly. For \"TRUTH TELL ME,\" use a direct, imploring gaze, signing \"TRUTH\" with conviction, emphasizing the desire for honesty. Tempo is direct and urgent."
+            },
+            {
+                "english_lyric": "Do the stars trade me, or do I trade you?”",
+                "asl_gloss": "'STARS TRADE ME? OR I TRADE YOU?'",
+                "nms_tempo_instructions": "Sign \"STARS TRADE ME?\" with a questioning gaze directed upwards, expressing wonder and vulnerability. For \"OR I TRADE YOU?\", shift gaze to an imagined interlocutor, signing \"TRADE\" with a challenging, self-aware expression. Use a slight head tilt for the question. Tempo is thoughtful and confrontational."
+            },
+            {
+                "english_lyric": "And he said:",
+                "asl_gloss": "HE SAID:",
+                "nms_tempo_instructions": "Sign \"HE SAID\" with a neutral, preparatory expression, setting up for a pronouncement. Tempo is a brief pause, then clear."
+            },
+            {
+                "english_lyric": "“Alpha’s the curve, but the arc is divine.",
+                "asl_gloss": "ALPHA CURVE (STATISTICAL GRAPH), BUT ARC DIVINE.",
+                "nms_tempo_instructions": "For \"ALPHA CURVE,\" sign \"ALPHA\" then depict a \"curve\" with a neutral, analytical expression. For \"BUT ARC DIVINE,\" make an expansive, graceful upward arc gesture, eyes widening and brow raising in awe for \"DIVINE.\" Tempo is initially academic, then transitions to majestic."
+            },
+            {
+                "english_lyric": "Derive from the Source, not the market’s line.”",
+                "asl_gloss": "DERIVE SOURCE FROM, NOT MARKET LINE-GRAPH.",
+                "nms_tempo_instructions": "Sign \"DERIVE SOURCE FROM\" with a grounding, inward motion, eyes focused. For \"NOT MARKET LINE-GRAPH,\" shake head firmly for \"NOT,\" then dismissively draw an imaginary market line, conveying a rejection of its limitations. Tempo is instructive and authoritative."
+            },
+            {
+                "english_lyric": "Tetragrammaton burns on stone,",
+                "asl_gloss": "TETRAGRAMMATON (fs) STONE BURN.",
+                "nms_tempo_instructions": "Fingerspell \"TETRAGRAMMATON\" with reverence. For \"STONE BURN,\" use a strong, impactful motion for \"STONE,\" then depict \"BURN\" with a flickering, intense hand shape and a serious, almost awestruck expression. Tempo is solemn and powerful."
+            },
+            {
+                "english_lyric": "But the broker reads it like a pay-per-loan.",
+                "asl_gloss": "BUT BROKER READ LIKE PAY-PER-LOAN.",
+                "nms_tempo_instructions": "Sign \"BUT BROKER READ\" with a dismissive, cynical expression, perhaps a slight eye-roll. For \"LIKE PAY-PER-LOAN,\" mimic counting money with a greedy, superficial look, contrasting the sacred with the profane. Tempo is quick and critical."
+            },
+            {
+                "english_lyric": "JHVH is not your fund’s next yield—",
+                "asl_gloss": "J-H-V-H (fs) NOT YOUR FUND FUTURE PROFIT.",
+                "nms_tempo_instructions": "Fingerspell \"J-H-V-H\" with great emphasis, then sign \"NOT YOUR FUND FUTURE PROFIT\" with a strong, definitive head shake and a stern, admonishing expression. The \"PROFIT\" sign should be rejected forcefully. Tempo is assertive and condemning."
+            },
+            {
+                "english_lyric": "It’s the name unspoken, the seal unsealed.",
+                "asl_gloss": "IT NAME NOT-SPOKEN, SEAL UNSEALED (REVEAL).",
+                "nms_tempo_instructions": "For \"IT NAME NOT-SPOKEN,\" use a hushed, reverent expression, mouth closed, with a subtle motion for \"NAME.\" For \"SEAL UNSEALED (REVEAL),\" perform an unsealing gesture with hands, eyes widening with profound revelation. Tempo is mysterious, then momentous."
+            },
+            {
+                "english_lyric": "“I am Alpha, I am Crown,",
+                "asl_gloss": "I ALPHA, I CROWN.",
+                "nms_tempo_instructions": "Sign \"I ALPHA\" with powerful self-affirmation. For \"I CROWN,\" place hands as if adorning a crown, with an expression of regal authority and triumph. Tempo is majestic and absolute."
+            },
+            {
+                "english_lyric": "The feet of light, not nailed down.",
+                "asl_gloss": "LIGHT FEET, NOT NAILED-DOWN (PINNED).",
+                "nms_tempo_instructions": "For \"LIGHT FEET,\" sign \"LIGHT\" with an upward, ethereal motion, then indicate \"FEET\" with a sense of freedom and weightlessness. For \"NOT NAILED-DOWN (PINNED),\" emphatically shake head for \"NOT,\" then perform a strong, rejecting motion for \"NAILED-DOWN,\" conveying liberation. Tempo is uplifting and defiant."
+            },
+            {
+                "english_lyric": "From soul to sole, I cut the lease,",
+                "asl_gloss": "FROM SOUL TO FEET, I CUT LEASE.",
+                "nms_tempo_instructions": "Sign \"FROM SOUL TO FEET\" with a sweeping motion from chest to ground, indicating holistic ownership. For \"I CUT LEASE,\" make a sharp, decisive \"cutting\" motion, accompanied by a firm, resolute expression, emphasizing finality and breaking free. Tempo is impactful and decisive."
+            },
+            {
+                "english_lyric": "Infinitus Deus, grant release.”",
+                "asl_gloss": "INFINITE GOD, GRANT RELEASE.",
+                "nms_tempo_instructions": "For \"INFINITE GOD,\" sign \"INFINITE\" with a vast, expansive gesture, looking upwards, and \"GOD\" with reverence. For \"GRANT RELEASE,\" extend hands outwards in a granting motion, with an expression of profound peace and liberation. Tempo is grand, solemn, and ultimately triumphant."
+            }
+        ];
+
+        const mainElement = document.querySelector('main');
+
+        lyricsData.forEach((lyric, index) => {
+            const article = document.createElement('article');
+            // Apply glass-card base styles and padding
+            article.className = 'glass-card p-6 md:p-8 flex flex-col justify-between';
+
+            // Create and append the animated border glow div
+            const borderGlow = document.createElement('div');
+            borderGlow.className = 'border-glow'; // Use the CSS class defined in <style>
+            article.appendChild(borderGlow);
+
+            // Construct the inner content for each lyric card
+            article.innerHTML += `
+                <div class="relative z-10"> <!-- z-10 keeps content above the glow -->
+                    <h3 class="font-display text-2xl md:text-3xl font-bold mb-4 leading-relaxed text-text-header">
+                        ${lyric.english_lyric}
+                    </h3>
+                    <div class="gradient-line"></div>
+                    <div class="space-y-4 pt-4">
+                        <div>
+                            <p class="text-sm uppercase font-semibold text-accent mb-1 tracking-wider">ASL Gloss</p>
+                            <p class="font-bold text-lg text-primary-light">${lyric.asl_gloss}</p>
+                        </div>
+                        <div>
+                            <p class="text-sm uppercase font-semibold text-accent mb-1 tracking-wider">NMS & Tempo</p>
+                            <p class="text-neutral-light leading-relaxed">${lyric.nms_tempo_instructions}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            mainElement.appendChild(article);
+        });
+    </script>
+</body>
+</html>
